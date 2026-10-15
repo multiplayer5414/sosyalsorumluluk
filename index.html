@@ -73,7 +73,7 @@
 </div></section>
 
 <section class="section section-soft" id="habitat"><div class="wrap"><div class="section-head"><div><div class="tiny-label">Spend your eco points</div><h2>🌳 Your Habitat</h2><p>Rescue a forest, then bring it back to life one tree at a time.</p></div><span class="pill">Your choices are saved in this browser</span></div>
-<div class="panel"><div class="habitat-scene" id="habitatScene"><img id="habitatImage" class="habitat-image" src="./forest_burning.jpg" alt="A forest burning in a wildfire"></div>
+<div class="panel"><div class="habitat-scene" id="habitatScene"><img id="habitatImage" class="habitat-image" src="https://multiplayer5414.github.io/sosyalorumluluk/forest_burning.jpg" alt="A forest burning in a wildfire"></div>
 <div class="habitat-status" id="habitatStatus" aria-live="polite">The forest is burning. Rescue it for 50 points.</div><div class="habitat-controls"><button class="btn btn-primary" id="rescueForest">🧯 Rescue the forest · 50 points</button><button class="btn btn-lime" id="plantTree" hidden>🌱 Plant a tree · 10 points</button><button class="btn btn-light" id="resetHabitat">Reset habitat</button></div><p class="muted" style="margin-bottom:0">Every tree costs 10 points. Your habitat and points are saved in this browser.</p></div>
 </div></section>
 
@@ -219,13 +219,13 @@ function renderHabitat(){
  const scene=document.getElementById('habitatScene'),img=document.getElementById('habitatImage');
  const rescue=document.getElementById('rescueForest'),plant=document.getElementById('plantTree');
  if(state.habitatStage==='burning'){
-  scene.classList.remove('saved');img.src='./forest_burning.jpg';img.alt='A forest burning in a wildfire';
+  scene.classList.remove('saved');img.src='https://multiplayer5414.github.io/sosyalorumluluk/forest_burning.jpg';img.alt='A forest burning in a wildfire';
   document.getElementById('habitatStatus').textContent='The forest is burning. Rescue it for 50 points.';rescue.hidden=false;plant.hidden=true;rescue.disabled=state.points<50;rescue.textContent=state.points<50?'🧯 Rescue the forest · 50 points (need '+(50-state.points)+' more)':'🧯 Rescue the forest · 50 points';
  }else{
   scene.classList.add('saved');
   const trees=Math.max(0,Number(state.habitatTrees)||0);
   const imageName=trees===0?'forest_cleared.jpg':`trees_${Math.min(trees,5)}.jpg`;
-  img.src='./'+imageName;
+  img.src='https://multiplayer5414.github.io/sosyalorumluluk/'+imageName;
   img.alt=trees===0?'A green forest clearing after the fire has been put out':`${trees} tree${trees===1?'':'s'} planted in a restored green habitat`;
   rescue.hidden=true;plant.hidden=false;plant.disabled=state.points<10;plant.textContent=state.points<10?'🌱 Plant a tree · 10 points (need '+(10-state.points)+' more)':'🌱 Plant a tree · 10 points';
   document.getElementById('habitatStatus').textContent='Forest rescued! Trees planted: '+trees+'. Keep growing your habitat.';
